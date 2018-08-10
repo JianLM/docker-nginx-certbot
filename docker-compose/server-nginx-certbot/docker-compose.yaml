@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  server-nginx-certbot:
+    build:
+      context:      './../../docker/server-nginx-certbot'
+      dockerfile:   'Dockerfile'
+    container_name: '${ENV_SERVICES_SERVER_NGINX_CERTBOT_CONTAINER_NAME}'
+    env_file:       '${ENV_PATH_FILE_SERVICES_DEFAULT_ENV_FILE}'
+    image:          'talsenteam/docker-nginx-certbot:${ENV_SERVICES_SERVER_NGINX_CERTBOT_IMAGE_TAG}'
+    network_mode:   '${ENV_SERVICES_SERVER_NGINX_CERTBOT_NETWORK_MODE}'
+    restart:        '${ENV_SERVICES_SERVER_NGINX_CERTBOT_RESTART}'
+    volumes:
+      -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/manual-config:/manual-config'
+      -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/etc/letsencrypt:/etc/letsencrypt'
+      -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/var/lib/letsencrypt:/var/lib/letsencrypt'
+      -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/var/log/letsencrypt:/var/log/letsencrypt'
+      -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/var/log/nginx:/var/log/nginx'

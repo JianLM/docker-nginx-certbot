@@ -1,0 +1,140 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker-build",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-build.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "docker-clean-system",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-clean-system.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-create",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-create.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-down",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-down.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-logs",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-logs.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-ps",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-ps.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-show",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "${USER}",
+        "command-show.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-start",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-start.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-stop",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-stop.sh",
+        "server-nginx-certbot",
+        "localhost"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-up",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-up.sh",
+        "server-nginx-certbot",
+        "localhost",
+        "-d"
+      ],
+      "problemMatcher": []
+    },
+  ]
+}
