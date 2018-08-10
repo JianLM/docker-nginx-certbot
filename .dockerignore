@@ -1,5 +1,7 @@
 *
 
+!docker/server-nginx-certbot/rootfs/etc/nginx/nginx.conf
 !docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/entrypoint.sh
+!docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/re-echo.sh
 !docker/server-nginx-certbot/rootfs/templates/nginx.conf
 !docker/server-nginx-certbot/rootfs/templates/vhost.template.conf

@@ -22,11 +22,14 @@
 !docker/server-nginx-certbot/
 !docker/server-nginx-certbot/Dockerfile
 !docker/server-nginx-certbot/rootfs/
+!docker/server-nginx-certbot/rootfs/etc/
+!docker/server-nginx-certbot/rootfs/etc/nginx/
+!docker/server-nginx-certbot/rootfs/etc/nginx/nginx.conf
 !docker/server-nginx-certbot/rootfs/opt/
 !docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/
 !docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/entrypoint.sh
+!docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/re-echo.sh
 !docker/server-nginx-certbot/rootfs/templates/
-!docker/server-nginx-certbot/rootfs/templates/nginx.conf
 !docker/server-nginx-certbot/rootfs/templates/vhost.template.conf
 
 !docker-compose/

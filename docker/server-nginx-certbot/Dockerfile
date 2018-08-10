@@ -7,7 +7,8 @@ RUN apk add --no-cache                           \
  && ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log
 
-COPY ./rootfs/opt/server-nginx-certbot/entrypoint.sh /opt/server-nginx-certbot/entrypoint.sh
-COPY ./rootfs/templates/                             /templates
+COPY ./rootfs/etc/nginx/nginx.conf      /etc/nginx/nginx.conf
+COPY ./rootfs/opt/server-nginx-certbot/ /opt/server-nginx-certbot
+COPY ./rootfs/templates/                /templates
 
 ENTRYPOINT [ "/bin/bash", "/opt/server-nginx-certbot/entrypoint.sh" ]
