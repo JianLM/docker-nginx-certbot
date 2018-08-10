@@ -37,6 +37,7 @@
 !env/server-nginx-certbot/
 !env/server-nginx-certbot/localhost.env
 
+!.dockerignore
 !.gitignore
 
 !LICENCE
