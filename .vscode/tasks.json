@@ -149,5 +149,18 @@
       ],
       "problemMatcher": []
     },
+    {
+      "label": "docker-update-configuration",
+      "type": "shell",
+      "command": "/bin/bash",
+      "args": [
+        "./bash-docker/util-elevate.sh",
+        "root",
+        "command-update-configuration.sh",
+        "server-nginx-certbot",
+        "localhost",
+      ],
+      "problemMatcher": []
+    },
   ]
 }

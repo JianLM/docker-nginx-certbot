@@ -15,6 +15,7 @@
 !bash-docker/command-start.sh
 !bash-docker/command-stop.sh
 !bash-docker/command-up.sh
+!bash-docker/command-update-configuration.sh
 !bash-docker/util-elevate.sh
 !bash-docker/util-functions.sh
 
@@ -27,6 +28,7 @@
 !docker/server-nginx-certbot/rootfs/etc/nginx/nginx.conf
 !docker/server-nginx-certbot/rootfs/opt/
 !docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/
+!docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/command-update-configuration.sh
 !docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/entrypoint.sh
 !docker/server-nginx-certbot/rootfs/opt/server-nginx-certbot/re-echo.sh
 !docker/server-nginx-certbot/rootfs/templates/
