@@ -41,6 +41,7 @@ function PrepareDockerComposeEnvironment() {
   VAR_NAME_APPLICATION=$(ReadArgument "${1}")
   VAR_NAME_CONFIGURATION=$(ReadArgument "${2}")
 
+  export ENV_PATH_ROOT_ENV=${VAR_PATH_ROOT_ENV}
   export ENV_PATH_FILE_SERVICES_DEFAULT_ENV_FILE="${VAR_PATH_ROOT_ENV}/${VAR_NAME_APPLICATION}/${VAR_NAME_CONFIGURATION}.env"
   ExportEnvironmentFile "${ENV_PATH_FILE_SERVICES_DEFAULT_ENV_FILE}"
 
