@@ -48,6 +48,8 @@ function PrepareDockerComposeEnvironment() {
   VAR_PATH_ROOT_DOCKER_COMPOSE=$(ReadEnvironmentPathOrDefault "ENV_PATH_ROOT_DOCKER_COMPOSE" "./../docker-compose")
   VAR_PATH_ROOT_DOCKER_COMPOSE="${VAR_PATH_ROOT_DOCKER_COMPOSE}/${VAR_NAME_APPLICATION}"
 
+  export ENV_PATH_ROOT_DOCKER_COMPOSE=${VAR_PATH_ROOT_DOCKER_COMPOSE}
+
   NavigateToFolder "${VAR_PATH_ROOT_DOCKER_COMPOSE}"
 
   ExportDockerComposeFileNameOrKeepAlreadySetName
