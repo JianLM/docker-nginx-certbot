@@ -2,6 +2,15 @@
 
 set -euo pipefail
 
+echo -e "Generating DH params ..."
+
+if [ ! -f "/cache/dhparams.pem" ]; then
+  openssl dhparam -out "/cache/dhparams.pem" 2048
+fi
+ln -fs "/cache/dhparams.pem" "/etc/ssl/dhparams.pem"
+
+echo -e "Generating DH params ... \033[0;32mdone\033[0m"
+
 echo -e "Starting nginx ..."
 
 /usr/sbin/nginx -g "daemon off;" & \

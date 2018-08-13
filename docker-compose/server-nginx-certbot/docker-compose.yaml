@@ -12,6 +12,7 @@ services:
     restart:        '${ENV_SERVICES_SERVER_NGINX_CERTBOT_RESTART}'
     volumes:
       -             '${ENV_PATH_ROOT_ENV}/server-nginx-certbot/:/etc/nginx/env:ro'
+      -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/cache/:/cache'
       -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/manual-config/:/manual-config:ro'
       -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/etc/letsencrypt/:/etc/letsencrypt'
       -             '${ENV_SERVICES_SERVER_NGINX_CERTBOT_VOLUMES_ROOT}/var/lib/letsencrypt/:/var/lib/letsencrypt'
