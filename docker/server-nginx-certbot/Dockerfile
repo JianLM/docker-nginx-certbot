@@ -5,7 +5,8 @@ RUN apk add --no-cache                           \
            certbot                               \
            openssl openssl-dev ca-certificates   \
  && ln -sf /dev/stdout /var/log/nginx/access.log \
- && ln -sf /dev/stderr /var/log/nginx/error.log
+ && ln -sf /dev/stderr /var/log/nginx/error.log  \
+ && mkdir -p /etc/nginx/vhosts
 
 COPY ./rootfs/etc/nginx/nginx.conf      /etc/nginx/nginx.conf
 COPY ./rootfs/opt/server-nginx-certbot/ /opt/server-nginx-certbot
