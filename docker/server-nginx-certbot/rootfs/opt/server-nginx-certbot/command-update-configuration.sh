@@ -44,7 +44,7 @@ do
   CONST_DAYS_CERTIFICATE_VALIDITY=60
   VAR_DATE_NOW=$(date '+%s')
   VAR_DATE_RECREATION=$((VAR_DATE_NOW - $((24 * 60 * 60 * ${CONST_DAYS_CERTIFICATE_VALIDITY}))))
-  VAR_PATH_FILE_SAN="/etc/nginx/san/${VAR_DOMAIN}"
+  VAR_PATH_FILE_SAN="/etc/letsencrypt/san/${VAR_DOMAIN}"
 
   if [ "${VAR_STAGING}" = "virtual" ]; then
     VAR_STAGING_URL=""
