@@ -13,7 +13,7 @@ while read -r VAR_COMMAND || [[ -n "${VAR_COMMAND}" ]]; do
   echo -e "Executing command: ${VAR_COMMAND} ..."
   echo -e ""
 
-  docker exec server-nginx-certbot ${VAR_COMMAND}
+  docker exec ${1} ${VAR_COMMAND}
 
   echo -e ""
   echo -e "Executing command: ${VAR_COMMAND} ... $(TextColorGreen)done$(TextColorDefault)"
