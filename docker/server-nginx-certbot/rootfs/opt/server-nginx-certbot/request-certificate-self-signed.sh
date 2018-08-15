@@ -12,7 +12,8 @@ fi
 
 mkdir -p /etc/letsencrypt/live/${VAR_DOMAIN}/
 
-/bin/bash -c "openssl req -x509 -nodes -days 365                                 \
-                      -newkey rsa:2048                                           \
-                      -keyout /etc/letsencrypt/live/${VAR_DOMAIN}/privkey.pem    \
-                      -out    /etc/letsencrypt/live/${VAR_DOMAIN}/fullchain.pem"
+openssl req -x509 -nodes -days 365                                                   \
+        -newkey rsa:2048                                                             \
+        -keyout /etc/letsencrypt/live/${VAR_DOMAIN}/privkey.pem                      \
+        -out    /etc/letsencrypt/live/${VAR_DOMAIN}/fullchain.pem                    \
+        -subj "/C=AT/ST=somewhere/L=somewhere/O=localhost/OU=localhost/CN=localhost"
