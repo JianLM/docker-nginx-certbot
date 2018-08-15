@@ -46,7 +46,7 @@ do
   VAR_DATE_RECREATION=$((VAR_DATE_NOW - $((24 * 60 * 60 * ${CONST_DAYS_CERTIFICATE_VALIDITY}))))
   VAR_PATH_FILE_SAN="/etc/letsencrypt/san/${VAR_DOMAIN}"
 
-  if [ "${VAR_STAGING}" = "virtual" ]; then
+  if [ "${VAR_STAGING}" = "self-signed" ]; then
     VAR_STAGING_URL=""
   elif [ "${VAR_STAGING}" = "none" ]; then
     VAR_STAGING_URL=""
@@ -61,7 +61,7 @@ do
     VAR_RENEW="new"
   elif [ "$(cat ${VAR_PATH_FILE_SAN})" != "${VAR_STAGING}" ]; then
     echo "Found prior lets encrypt staging configuration for '${VAR_DOMAIN}'."
-    echo " -> lets encrypt staging configuration changed from '${VAR_STAGING_OLD}' to '${VAR_STAGING}': certificate renewal required."
+    echo " -> lets encrypt staging configuration changed from '$(cat ${VAR_PATH_FILE_SAN})' to '${VAR_STAGING}': certificate renewal required."
     VAR_RENEW="renew"
   elif (( $(date -r ${VAR_PATH_FILE_SAN} '+%s') < ${VAR_DATE_RECREATION})); then
     echo "Found prior lets encrypt staging configuration for '${VAR_DOMAIN}'."
@@ -75,23 +75,15 @@ do
       echo "  -> cleaning up certificate storage."
       certbot delete --cert-name "${VAR_DOMAIN}"
     fi
-    echo "certbot certonly \
-         --standalone --preferred-challenges http --text --non-interactive \
-         ${VAR_STAGING_URL} \
-         --email ${VAR_EMAIL} --agree-tos \
-         -d ${VAR_DOMAIN} \
-         --expand" > "/etc/nginx/.letsencrypt.command"
-    if [ "${VAR_STAGING}" == "virtual" ]; then
-      echo " -> simulating certificate renewal:"
-      cat "/etc/nginx/.letsencrypt.command"
-    else
-      /bin/bash "/etc/nginx/.letsencrypt.command"
-    fi
-
-    rm -f "/etc/nginx/.letsencrypt.command"
+    /bin/bash /opt/server-nginx-certbot/request-certificate.sh \
+              "${VAR_STAGING}"                                 \
+              "${VAR_STAGING_URL}"                             \
+              "${VAR_EMAIL}"                                   \
+              "${VAR_DOMAIN}"
   fi
 
   # update san information
+  mkdir -p "/etc/letsencrypt/san"
   echo "${VAR_STAGING}" > "${VAR_PATH_FILE_SAN}"
 
   # render configurations

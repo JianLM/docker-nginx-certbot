@@ -7,7 +7,7 @@ RUN apk add --no-cache                           \
  && ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log  \
  && mkdir -p /etc/nginx/vhosts                   \
- && mkdir -p /etc/nginx/san
+ && mkdir -p /etc/letsencrypt/san
 
 COPY ./rootfs/etc/nginx/nginx.conf      /etc/nginx/nginx.conf
 COPY ./rootfs/opt/server-nginx-certbot/ /opt/server-nginx-certbot
