@@ -11,6 +11,9 @@ function ExportEnvironmentFile() {
       if [ "${VAR_LINE}" = "" ]; then
         continue;
       fi
+      if [ "${VAR_LINE}" = "# private" ]; then
+        break;
+      fi
       if [[ ${VAR_LINE} != \#* ]]; then
         export "${VAR_LINE}"
       fi
