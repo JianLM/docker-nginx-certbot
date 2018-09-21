@@ -27,6 +27,8 @@ echo -e "Testing nginx configuration ... \033[0;32mdone\033[0m"
 
 ExportEnvironmentFile "/etc/nginx/env/${1}.env"
 
+mkdir -p "/etc/letsencrypt/san"
+
 for VAR_VHOST_NAME in ${ENV_SERVICES_SERVER_NGINX_CERTBOT_VHOSTS}
 do
   VAR_DOMAIN_ENV_NAME="ENV_SERVICES_SERVER_NGINX_CERTBOT_VHOST_${VAR_VHOST_NAME}_DOMAIN"
@@ -80,11 +82,10 @@ do
               "${VAR_STAGING_URL}"                             \
               "${VAR_EMAIL}"                                   \
               "${VAR_DOMAIN}"
+                
+    # update san information
+    echo "${VAR_STAGING}" > "${VAR_PATH_FILE_SAN}"
   fi
-
-  # update san information
-  mkdir -p "/etc/letsencrypt/san"
-  echo "${VAR_STAGING}" > "${VAR_PATH_FILE_SAN}"
 
   # render configurations
   VAR_PATH_FILE_VHOST_SOURCE_TEMPLATE="/templates/vhost.template.conf"
