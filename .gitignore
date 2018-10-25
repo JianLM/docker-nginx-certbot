@@ -2,6 +2,8 @@
 
 !.vscode
 
+!bash-docker
+
 !docker/
 !docker/server-nginx-certbot/
 !docker/server-nginx-certbot/Dockerfile
