@@ -27,10 +27,6 @@
 !docker-compose/server-nginx-certbot/
 !docker-compose/server-nginx-certbot/docker-compose.yaml
 
-!env/
-!env/server-nginx-certbot/
-!env/server-nginx-certbot/localhost.env
-
 !.dockerignore
 !.gitignore
 !.gitmodules
