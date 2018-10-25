@@ -10,7 +10,7 @@ services:
     network_mode:   'host'
     restart:        'no'
     volumes:
-      -             '${ENV_PATH_VOLUMES_ROOT}/../env/server-nginx-certbot/:/etc/nginx/env:ro'
+      -             '${ENV_PATH_VOLUMES_ROOT}/../application.env:/etc/nginx/env/application.env:ro'
       -             '${ENV_PATH_VOLUMES_ROOT}/server-nginx-certbot/cache/:/cache'
       -             '${ENV_PATH_VOLUMES_ROOT}/server-nginx-certbot/manual-config/:/manual-config:ro'
       -             '${ENV_PATH_VOLUMES_ROOT}/server-nginx-certbot/etc/letsencrypt/:/etc/letsencrypt'
